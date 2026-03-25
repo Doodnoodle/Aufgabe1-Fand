@@ -39,3 +39,23 @@ public class Dozent {
     }
 
 }
+
+public class Studiengang {
+    public static void main(String[] args) throws Exception {}
+    private String name;
+    private Dozent dozent;
+
+    public Studiengang(String name, Dozent dozent) {
+        this.name = name;
+        this.dozent = dozent;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Dozent getDozent() {
+        return dozent;
+    }
+
+}
