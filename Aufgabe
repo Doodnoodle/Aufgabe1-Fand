@@ -1,0 +1,8 @@
+public class Aufgabe {
+    public static void main(String[] args) {
+        Dozent[] dozenten = new Dozent[4];
+        dozenten[0] = new Dozent("Dr. Müller", "Informatik", 123);
+        Studierender studierender = new Studierender("Anna", 456789);
+        studierender.frageStellen("Was ist die Hauptaufgabe eines Dozenten?");
+    }
+}
