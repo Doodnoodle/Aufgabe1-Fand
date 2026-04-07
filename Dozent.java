@@ -19,15 +19,15 @@ public class Dozent {
         return bueroNummer;
     }
 
-    public String frageBeantworten(String frage) {
+    public String frageBeantworten(String frage, Studierender studierender) {
         if (frage.equalsIgnoreCase("Wie heißt der Dozent?")) {
-            return "Der Dozent heißt " + name + ".";
+            return studierender.getName() + ", der Dozent heißt " + name + ".";
         } else if (frage.equalsIgnoreCase("Welche Fakultät gehört der Dozent an?")) {
-            return "Der Dozent gehört zur Fakultät " + fakultaet + ".";
+            return studierender.getName() + ", der Dozent gehört zur Fakultät " + fakultaet + ".";
         } else if (frage.equalsIgnoreCase("Wie lautet die Bürosnummer des Dozenten?")) {
-            return "Die Bürosnummer des Dozenten ist " + bueroNummer + ".";
+            return studierender.getName() + ", die Bürosnummer des Dozenten ist " + bueroNummer + ".";
         } else {
-            return "Frage nicht passend.";
+            return "Tut mir leid, " + studierender.getName() + ", diese Frage kann ich nicht beantworten.";
         }
     }
 }

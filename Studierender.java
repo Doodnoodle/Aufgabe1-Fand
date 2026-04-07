@@ -20,8 +20,8 @@ public class Studierender {
     public String getStudiengang() {
         return studiengang;
     }
-
-    public void frageStellen(String frage, Dozent dozent) {
+    
+    public void frageStellen(String frage) {
         System.out.println(name + " stellt die Frage: " + frage);
     }
 
