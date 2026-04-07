@@ -1,0 +1,69 @@
+public class Lehrveranstaltung {
+    private String titel;
+    private Dozent dozent;
+
+    private Studierender[] studierende = new Studierender[20];
+    private int studierendenCount = 0;
+
+    private Vorlesungsstunde[] vorlesungen = new Vorlesungsstunde[10];
+    private int vorlesungsCount = 0;
+
+    private Praktikumsstunde[] praktika = new Praktikumsstunde[10];
+    private int praktikumsCount = 0;
+
+    public Lehrveranstaltung(String titel, Dozent dozent) {
+        this.titel = titel;
+        this.dozent = dozent;
+    }
+
+    public void addStudierender(Studierender s) {
+        if (studierendenCount < studierende.length) {
+            studierende[studierendenCount] = s;
+            studierendenCount++;
+        }
+    }
+
+    public void removeStudierender(Studierender s) {
+        for (int i = 0; i < studierendenCount; i++) {
+            if (studierende[i] == s) {
+                studierende[i] = studierende[studierendenCount - 1];
+                studierendenCount--;
+                break;
+            }
+        }
+    }
+
+    public void addVorlesung(Vorlesungsstunde v) {
+        if (vorlesungsCount < vorlesungen.length) {
+            vorlesungen[vorlesungsCount] = v;
+            vorlesungsCount++;
+        }
+    }
+
+    public void addPraktikum(Praktikumsstunde p) {
+        if (praktikumsCount < praktika.length) {
+            praktika[praktikumsCount] = p;
+            praktikumsCount++;
+        }
+    }
+
+    public void anzeigenDetails() {
+        System.out.println("Lehrveranstaltung: " + titel);
+        System.out.println("Dozent: " + dozent.getName());
+
+        System.out.println("\nTeilnehmer:");
+        for (int i = 0; i < studierendenCount; i++) {
+            System.out.println("- " + studierende[i].getName());
+        }
+
+        System.out.println("\nVorlesungen:");
+        for (int i = 0; i < vorlesungsCount; i++) {
+            vorlesungen[i].anzeigen();
+        }
+
+        System.out.println("\nPraktika:");
+        for (int i = 0; i < praktikumsCount; i++) {
+            praktika[i].anzeigen();
+        }
+    }
+}

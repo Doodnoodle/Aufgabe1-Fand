@@ -1,33 +1,30 @@
 public class Dozent {
     private String name;
     private String fakultaet;
-    private int bueroNummer;
+    private String bueronummer;
 
-    public Dozent(String name, String fakultaet, int bueroNummer) {
+    public Dozent(String name, String fakultaet, String bueronummer) {
         this.name = name;
         this.fakultaet = fakultaet;
-        this.bueroNummer = bueroNummer;
- 
+        this.bueronummer = bueronummer;
     }
+
     public String getName() {
         return name;
     }
-    public String getFakultaet() {
-        return fakultaet;
-    }
-    public int getBueroNummer() {
-        return bueroNummer;
+
+    public void frageBeantworten(Studierender student, String frage) {
+        System.out.println(name + " beantwortet die Frage von "
+                + student.getName() + ": Antwort auf '" + frage + "'");
     }
 
-    public String frageBeantworten(String frage, Studierender studierender) {
-        if (frage.equalsIgnoreCase("Wie heißt der Dozent?")) {
-            return studierender.getName() + ", der Dozent heißt " + name + ".";
-        } else if (frage.equalsIgnoreCase("Welche Fakultät gehört der Dozent an?")) {
-            return studierender.getName() + ", der Dozent gehört zur Fakultät " + fakultaet + ".";
-        } else if (frage.equalsIgnoreCase("Wie lautet die Bürosnummer des Dozenten?")) {
-            return studierender.getName() + ", die Bürosnummer des Dozenten ist " + bueroNummer + ".";
-        } else {
-            return "Tut mir leid, " + studierender.getName() + ", diese Frage kann ich nicht beantworten.";
-        }
+    public void empfangeSprechstundenAnfrage(Studierender student, String termin) {
+        System.out.println(name + " hat eine Sprechstundenanfrage von "
+                + student.getName() + " für den Termin: " + termin);
+    }
+
+    public void erhalteFeedback(Studierender student, String feedback) {
+        System.out.println(name + " erhält Feedback von "
+                + student.getName() + ": " + feedback);
     }
 }
